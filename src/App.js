@@ -19,7 +19,7 @@ function App() {
         <Route path='/about'>
           <About/>
         </Route>
-        <Route path='/recipies/:id'>
+        <Route path='/recipes/:id'>
           <SingleRecipes/>
         </Route>
         <Route path='*'>
