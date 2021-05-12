@@ -1,8 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect, useCallback } from 'react';
 
+const url = `https://api.spoonacular.com/food/products/search?apiKey=${process.env.REACT_APP_RECIPE_API_KEY}&query=`
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
+  const [loading, setLoading ] = useState(true);
+  const [recipes, setRecipes ] = useState([]);
+  const [ search, setSearch ] = useState('a')
+
+  const fetchRecipes = useCallback(async() =>{
+    setLoading(true);
+    try{
+      const response = await fetch(`${url}${search}&number=1`);
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }, [search])
+  useEffect(()=>{
+    fetchRecipes()
+  }, [fetchRecipes])
+
   return(
     <AppContext.Provider value={{}}>
       {children}
