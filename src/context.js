@@ -6,7 +6,10 @@ const AppContext = React.createContext();
 const AppProvider = ({children}) => {
   const [loading, setLoading ] = useState(true);
   const [recipes, setRecipes ] = useState([]);
-  const [ search, setSearch ] = useState('pizza');
+  const [search, setSearch] = useState('pizza');
+  //products: Array(1)
+//0: {id: 192386, title: "Pizza Buddy: Frozen Pizza Dough, 16 Oz", image: "https://spoonacular.com/productImages/192386-312x231.jpg", imageType: "jpg"}
+
 
   const fetchRecipes = useCallback(async() =>{
     setLoading(true);
@@ -16,16 +19,28 @@ const AppProvider = ({children}) => {
       console.log(`${url}${search}&number=1`)
       const data = await response.json()
       console.log(data)
+      const { products } = data;
+      if(products){
+        const newRecipes = products.map((product)=>{
+          const { id, title, image } = product;
+          return {id, title, image}
+        })
+        setRecipes(newRecipes)
+      } else {
+        setRecipes([])
+      }
+      setLoading(false)
     } catch (error) {
       console.log(error)
+      setLoading(false)
     }
   }, [search])
   useEffect(()=>{
     fetchRecipes()
-  }, [fetchRecipes])
+  }, [fetchRecipes, search])
 
   return(
-    <AppContext.Provider value={{}}>
+    <AppContext.Provider value={{ loading, recipes, search, setSearch }}>
       {children}
     </AppContext.Provider>
   )
