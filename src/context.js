@@ -7,9 +7,6 @@ const AppProvider = ({children}) => {
   const [loading, setLoading ] = useState(true);
   const [recipes, setRecipes ] = useState([]);
   const [search, setSearch] = useState('pizza');
-  //products: Array(1)
-//0: {id: 192386, title: "Pizza Buddy: Frozen Pizza Dough, 16 Oz", image: "https://spoonacular.com/productImages/192386-312x231.jpg", imageType: "jpg"}
-
 
   const fetchRecipes = useCallback(async() =>{
     setLoading(true);
