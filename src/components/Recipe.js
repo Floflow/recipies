@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Recipe = ({ id, title, image }) => {
   return(
     <div>
-
+      Recipe
     </div>
   );
 }
 
-export default RecipeList;
+export default Recipe;
