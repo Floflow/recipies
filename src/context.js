@@ -19,8 +19,8 @@ const AppProvider = ({children}) => {
       const { products } = data;
       if(products){
         const newRecipes = products.map((product)=>{
-          const { id, title, complexSearch, image } = product;
-          return {id, title, complexSearch, image}
+          const { id, title, readyInMinutes, image } = product;
+          return {id, title, readyInMinutes, image}
         })
         setRecipes(newRecipes)
       } else {
