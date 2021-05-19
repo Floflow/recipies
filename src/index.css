@@ -222,7 +222,26 @@ Recipe List
 Recipe
 ======
 */
-
+.recipe {
+  background: var(--mainWhite);
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  margin-bottom: 2rem;
+  border-radius: var(--mainBorderRadius);
+}
+.recipe:hover {
+  box-shadow: var(--darkShadow);
+}
+.recipe image {
+  height: 20rem;
+  border-top-left-radius: var(--mainBorderRadius);
+  border-top-right-radius: var(--mainBorderRadius);
+}
+.recipe-footer {
+  padding: 1.5rem;
+}
 
 /*
 ======
