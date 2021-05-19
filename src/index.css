@@ -229,6 +229,9 @@ Recipe
 SearchForm
 ======
 */
+.search {
+  padding-bottom: 0;
+}
 .search-form {
   width: var(--smallWidth);
   margin: 0 auto;
@@ -238,6 +241,22 @@ SearchForm
   text-transform: capitalize;
   border-radius: var(--mainBorderRadius);
   box-shadow: var(--lightShadow);
+}
+.form-control label {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  color: var(--primaryColor);
+}
+.form-control input {
+  width: 100%;
+  border-radius: var(--mainBorderRadius);
+  border: none;
+  border-color: transparent;
+  background: var(--mainBackground);
+  padding: 0.5rem;
+  font-size: 1.2rem;
 }
 
 

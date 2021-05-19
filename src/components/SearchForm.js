@@ -18,17 +18,19 @@ const SearchForm = () => {
     setSearch(searchValue.current.value)
   }
   return(
-    <section className='section'>
+    <section className='section search'>
       <div>
         <form className='search-form' onSubmit={handleSubmit}>
-          <label htmlFor="name">Search for a recipe</label>
-          <input
-            type='text'
-            name='name'
-            id='name'
-            ref={searchValue}
-            onChange={handleChange}
-          />
+          <div className='form-control'>
+            <label htmlFor="name">Search for a recipe</label>
+            <input
+              type='text'
+              name='name'
+              id='name'
+              ref={searchValue}
+              onChange={handleChange}
+            />
+          </div>
         </form>
       </div>
     </section>
