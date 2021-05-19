@@ -13,15 +13,18 @@ const RecipeList = () => {
     return <h2>There is no recipe matching your criterias.</h2>
   }
   return(
-    <div>
-      {
-        recipes.map((recipe)=>{
-          return(
-            <Recipe key={recipe.id} {...recipe}/>
-          )
-        })
-      }
-    </div>
+    <section className='section'>
+      <div className='recipe-center'>
+        {
+          recipes.map((recipe)=>{
+            return(
+              <Recipe key={recipe.id} {...recipe}/>
+            )
+          })
+        }
+      </div>
+    </section>
+
   );
 }
 

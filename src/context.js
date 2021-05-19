@@ -12,7 +12,7 @@ const AppProvider = ({children}) => {
     setLoading(true);
     try{
       //I added "number="" params as I have limited requests per day. Remove it to get full result.
-      const response = await fetch(`${url}${search}&number=1`);
+      const response = await fetch(`${url}${search}&number=2`);
       console.log(`${url}${search}&number=1`)
       const data = await response.json()
       console.log(data)
