@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react';
 
-const url = `https://api.spoonacular.com/recipes/search?apiKey=${process.env.REACT_APP_RECIPE_API_KEY}&query=`
+const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_RECIPE_API_KEY}&query=`
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
@@ -16,11 +16,12 @@ const AppProvider = ({children}) => {
       console.log(`${url}${search}&number=1`)
       const data = await response.json()
       console.log(data)
-      const { products } = data;
-      if(products){
-        const newRecipes = products.map((product)=>{
-          const { id, title, readyInMinutes, image } = product;
-          return {id, title, readyInMinutes, image}
+      const { results } = data;
+      if(results){
+        console.log(results)
+        const newRecipes = results.map((product)=>{
+          const { id, title, image } = product;
+          return {id, title, image}
         })
         setRecipes(newRecipes)
       } else {

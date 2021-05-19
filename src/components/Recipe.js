@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const Recipe = ({ id, title, image }) => {
   return(
     <div>
-      Recipe
+      <p>{title}</p>
+      <img src={image} alt="image of the recipe"/>
     </div>
   );
 }
