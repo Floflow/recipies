@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useCallback } from 'react';
 
 const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_RECIPE_API_KEY}&query=`
 const AppContext = React.createContext();
+console.log("random test")
 
 const AppProvider = ({children}) => {
   const [loading, setLoading ] = useState(true);
